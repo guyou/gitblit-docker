@@ -27,6 +27,7 @@ run mkdir -p /opt/gitblit-data
 run mv /opt/gitblit/data/* /opt/gitblit-data
 run mv /opt/gitblit-data/gitblit.properties /opt/gitblit-data/default.properties
 
+
 # Adjust the default Gitblit settings to bind to 80, 443, 9418, 29418, and allow RPC administration.
 #
 # Note: we are writing to a different file here because sed doesn't like to the same file it
@@ -44,4 +45,5 @@ expose 80
 expose 443
 expose 9418
 expose 29418
+VOLUME ["/opt/gitblit-data"]
 cmd ["java", "-server", "-Xmx1024M", "-Djava.awt.headless=true", "-jar", "/opt/gitblit/gitblit.jar", "--baseFolder", "/opt/gitblit-data"]
