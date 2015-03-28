@@ -1,19 +1,15 @@
 # Basics
 #
-from ubuntu:latest
+from debian:wheezy
 maintainer Guilhem Bonnefille <guilhem.bonnefille@gmail.com>
 
 run apt-get update
-run apt-get install -q -y git-core redis-server
 
 # Install Java 7
 
-run DEBIAN_FRONTEND=noninteractive apt-get install -q -y software-properties-common
-run DEBIAN_FRONTEND=noninteractive apt-get install -q -y python-software-properties
-run DEBIAN_FRONTEND=noninteractive apt-add-repository ppa:webupd8team/java -y
-run apt-get update
-run echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-run DEBIAN_FRONTEND=noninteractive apt-get install oracle-java7-installer -y
+# On wheezy, default-jre is 1.6 while gitblit requires 1.7
+# run apt-get install -qqy default-jre
+run apt-get install -qqy openjdk-7-jre-headless
 
 # Install Gitblit
 
