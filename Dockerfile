@@ -1,7 +1,8 @@
 # Basics
 #
 from ubuntu:latest
-maintainer James Moger <james.moger@gitblit.com>
+maintainer Guilhem Bonnefille <guilhem.bonnefille@gmail.com>
+
 run apt-get update
 run apt-get install -q -y git-core redis-server
 
